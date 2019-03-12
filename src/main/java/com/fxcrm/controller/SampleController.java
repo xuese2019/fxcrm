@@ -115,6 +115,7 @@ public class SampleController {
     /**
      * 跳转至首页
      */
+    @FXML
     private void toHome() {
         try {
             //        获取stage

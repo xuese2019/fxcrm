@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="yys" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.YybfqController">
+    <children>
+        <VBox layoutX="244.0" layoutY="123.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="30.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="85.0" text="音乐文件地址" />
+                        <TextField fx:id="musicPath" prefHeight="30.0" prefWidth="883.0" styleClass="notwh" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onMouseClicked="#getData" prefHeight="30.0" styleClass="buttons" text="加载" />
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox prefWidth="500.0">
+                            <children>
+                                <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="notwh" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <AnchorPane fx:id="pan" nodeOrientation="LEFT_TO_RIGHT" prefHeight="687.0" prefWidth="498.0" styleClass="notwh">
+                                            <children>
+                                                <VBox fx:id="gd" prefHeight="200.0" prefWidth="100.0" styleClass="notwh" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
+                  <HBox fx:id="pp" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <HBox fx:id="mus" prefHeight="50.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#up" prefHeight="510.0" styleClass="buttons" text="上一首" />
+                        <Button mnemonicParsing="false" onMouseClicked="#play" prefHeight="510.0" styleClass="buttons" text="播放" />
+                        <Button mnemonicParsing="false" onMouseClicked="#pause" prefHeight="510.0" styleClass="buttons" text="暂停" />
+                        <Button mnemonicParsing="false" onMouseClicked="#stops" prefHeight="510.0" styleClass="buttons" text="停止" />
+                        <Button mnemonicParsing="false" onMouseClicked="#dow" prefHeight="510.0" styleClass="buttons" text="下一首" />
+                        <Label fx:id="dqbf" prefHeight="50.0" prefWidth="211.0" />
+                        <VBox prefHeight="50.0" prefWidth="50.0">
+                            <children>
+                                <Button mnemonicParsing="false" onMouseClicked="#volUp" prefHeight="25.0" prefWidth="50.0" styleClass="buttons" text="↑" />
+                                <Button mnemonicParsing="false" onMouseClicked="#volDow" prefHeight="25.0" prefWidth="50.0" styleClass="buttons" text="↓" />
+                            </children>
+                        </VBox>
+                        <Label fx:id="vol" prefHeight="50.0" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -2,7 +2,6 @@ package com.fxcrm.feign.account;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fxcrm.utils.ResponseResult;
-import feign.FeignException;
 import feign.Headers;
 import feign.RequestLine;
 

@@ -5,7 +5,7 @@ package com.fxcrm.utils.exception;
  * @date:
  * @description:
  */
-public class MyExceptionUtils{
+public class MyExceptionUtils {
 
     public String ex(Exception e) {
         if (e instanceof feign.RetryableException) {

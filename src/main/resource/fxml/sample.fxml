@@ -3,7 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.lang.String?>
+<?import java.lang.*?>
 <GridPane alignment="center" hgap="10.0" styleClass="login" vgap="10.0" xmlns="http://javafx.com/javafx/8"
           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.SampleController">
     <columnConstraints>
@@ -23,8 +23,7 @@
                       nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="500.0"
                       style="-fx-background-color: #dfe0e1;" VBox.vgrow="ALWAYS">
                     <children>
-                        <Label fx:id="title" prefHeight="25.0" prefWidth="300.0" styleClass="login-title" text="CRM"
-                               textFill="WHITE">
+                        <Label fx:id="title" prefHeight="25.0" prefWidth="300.0" styleClass="login-title" text="CRM">
                             <padding>
                                 <Insets left="10.0"/>
                             </padding>
@@ -50,7 +49,7 @@
                         <HBox prefHeight="25.0" prefWidth="500.0">
                             <children>
                                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="80.0" text="账户"
-                                       textAlignment="CENTER" textFill="WHITE">
+                                       textAlignment="CENTER">
                                     <HBox.margin>
                                         <Insets left="100.0"/>
                                     </HBox.margin>
@@ -64,7 +63,7 @@
                         <HBox prefHeight="25.0" prefWidth="500.0">
                             <children>
                                 <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="80.0" text="密码"
-                                       textAlignment="CENTER" textFill="WHITE">
+                                       textAlignment="CENTER">
                                     <padding>
                                         <Insets right="10.0"/>
                                     </padding>
@@ -85,7 +84,7 @@
                             <children>
                                 <Label fx:id="errorText" prefHeight="25.0" prefWidth="206.0"/>
                                 <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#login"
-                                        prefHeight="25.0" prefWidth="235.0" text="登陆" textFill="WHITE">
+                                        prefHeight="25.0" prefWidth="235.0" text="登陆">
                                     <HBox.margin>
                                         <Insets right="110.0"/>
                                     </HBox.margin>
@@ -99,6 +98,16 @@
                                 </Button>
                             </children>
                         </HBox>
+                        <Button mnemonicParsing="false" onMouseClicked="#toHome" prefHeight="25.0" prefWidth="210.0"
+                                text="免登陆">
+                            <styleClass>
+                                <String fx:value="login-button-login"/>
+                                <String fx:value="cursor1"/>
+                            </styleClass>
+                            <VBox.margin>
+                                <Insets left="180.0" top="10.0"/>
+                            </VBox.margin>
+                        </Button>
                     </children>
                 </VBox>
             </children>

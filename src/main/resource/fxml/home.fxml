@@ -65,6 +65,13 @@
                                 <String fx:value="cursor1"/>
                             </styleClass>
                         </Label>
+                        <Label fx:id="yybfq" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#yybfq"
+                               prefHeight="30.0" prefWidth="150.0" text="音乐播放器" textAlignment="CENTER">
+                            <styleClass>
+                                <String fx:value="home-left-men-label"/>
+                                <String fx:value="cursor1"/>
+                            </styleClass>
+                        </Label>
                     </children>
                 </VBox>
                 <VBox HBox.hgrow="ALWAYS">

@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
  */
 public class HomeController {
 
+    private static Node node = null;
+
     @FXML
     private VBox bodys;
     @FXML
@@ -103,30 +105,52 @@ public class HomeController {
         men("wllj");
     }
 
+    /**
+     * 音乐播放器
+     */
+    @FXML
+    private void yybfq() {
+        men("yybfq");
+    }
+
     private void men(String str) {
         try {
 //            ObservableList<Stage> stages = FXRobotHelper.getStages();
+            if (bodys.getChildren().size() > 0) {
+                Node n = bodys.getChildren().get(0);
+                String id = n.getId();
+                if (id != null && id.equals("yys")) {
+                    node = n;
+                }
+            }
             bodys.getChildren().clear();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/" + str + ".fxml"));
             Parent root = fxmlLoader.load();
-            if (str.equals("khgl")) {
-                KhglController controller = fxmlLoader.getController();
-                controller.page();
-            }
-            if (str.equals("bfjl")) {
-                BfjlController controller = fxmlLoader.getController();
-                controller.page();
-            }
-            if (str.equals("llq")) {
-                LlqController controller = fxmlLoader.getController();
-                controller.init();
-            }
-            if (str.equals("wllj")) {
-                WlljController controller = fxmlLoader.getController();
-                controller.init();
-            }
-//            Parent root = FXMLLoader.load(getClass().getResource("/fxml/" + str + ".fxml"));
             bodys.getChildren().add(root);
+            Object controller1 = fxmlLoader.getController();
+            switch (str) {
+                case "khgl":
+                    ((KhglController) controller1).page();
+                    break;
+                case "bfjl":
+                    ((BfjlController) controller1).page();
+                    break;
+                case "llq":
+                    ((LlqController) controller1).init();
+                    break;
+                case "wllj":
+                    ((WlljController) controller1).init();
+                    break;
+                case "yybfq":
+                    if (node == null) {
+                        ((YybfqController) controller1).init();
+                    } else {
+                        bodys.getChildren().clear();
+                        bodys.getChildren().add(node);
+                    }
+                    break;
+                default:
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
