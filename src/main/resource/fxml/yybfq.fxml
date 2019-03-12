@@ -48,6 +48,7 @@
                             </children>
                         </VBox>
                         <Label fx:id="vol" prefHeight="50.0" />
+                  <Label fx:id="musjd" prefHeight="50.0" style="-fx-background-color: blue;" />
                     </children>
                 </HBox>
             </children>

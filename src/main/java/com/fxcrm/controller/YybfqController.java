@@ -11,10 +11,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioSpectrumListener;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +50,9 @@ public class YybfqController {
 
     @FXML
     private HBox pp;
+
+    @FXML
+    private Label musjd;
 
     public void init() {
         musicPath.setText("D:\\yy");
@@ -139,6 +144,7 @@ public class YybfqController {
 
     @FXML
     private void play() {
+        musjd.setPrefWidth(0);
         if (list.size() > 0) {
             dqbfindex = dqbfindex >= 0 ? dqbfindex : 0;
             dqbfgq = list.get(dqbfindex);
@@ -164,8 +170,16 @@ public class YybfqController {
                         Task<Void> task = new Task<Void>() {
                             @Override
                             protected Void call() throws Exception {
+                                Duration totalDuration = mp1.getTotalDuration();
+                                double d = totalDuration.toSeconds();
+//                                DecimalFormat df = new DecimalFormat("#.00");
+                                double v = timestamp / d;
+                                DecimalFormat df = new DecimalFormat("#.00");
+                                DecimalFormat df2 = new DecimalFormat("#.00");
+                                double v1 = Double.parseDouble(df.format(v));
+                                double v2 = 1000 * v1;
 //                                频谱
-                                pinpu(phases);
+                                pinpu(phases, v2);
                                 return null;
                             }
                         };
@@ -178,7 +192,7 @@ public class YybfqController {
         }
     }
 
-    private void pinpu(float[] phases) {
+    private void pinpu(float[] phases, double v2) {
         HBox hBox = new HBox();
         hBox.setPrefWidth(1000);
         hBox.setPrefHeight(1280);
@@ -195,6 +209,7 @@ public class YybfqController {
             public void run() {
                 pp.getChildren().clear();
                 pp.getChildren().add(hBox);
+                musjd.setPrefWidth(v2);
             }
         });
     }
