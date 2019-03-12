@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.KhglController">
+    <children>
+        <VBox layoutX="412.0" layoutY="223.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="30.0">
+                    <children>
+                        <Label prefHeight="30.0" text="名称" textFill="WHITE"/>
+                        <TextField fx:id="name" prefHeight="30.0" styleClass="notwh"/>
+                        <Label prefHeight="30.0" text="联系电话" textFill="WHITE"/>
+                        <TextField fx:id="dh" prefHeight="30.0" styleClass="notwh"/>
+                        <Label alignment="CENTER" prefHeight="30.0" text="地址" textFill="WHITE"/>
+                        <TextField fx:id="dz" prefHeight="30.0" styleClass="notwh"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#add" prefHeight="30.0" styleClass="buttons"
+                                text="新增" textFill="WHITE"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#page" prefHeight="30.0" styleClass="buttons"
+                                text="查询" textFill="WHITE"/>
+                        <Label fx:id="error" prefHeight="30.0"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#pageUp" prefHeight="30.0" styleClass="buttons"
+                                text="上一页" textFill="WHITE"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#pageDow" prefHeight="30.0" styleClass="buttons"
+                                text="下一页" textFill="WHITE"/>
+                    </children>
+                </HBox>
+                <VBox fx:id="tables" VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+.login{
+    -fx-background-image: url("../img/login.jpg");
+}
+.login-title{
+    -fx-background-color: #0049ff;
+}
+.login-close{
+    -fx-background-color: red;
+}
+.login-button-login{
+    -fx-background-color: #0081ff;
+}
+.cursor1:hover{
+    -fx-cursor: hand;
+}

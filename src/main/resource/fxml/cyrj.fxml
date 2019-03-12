@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.fxcrm.controller.CyrjController">
+    <children>
+        <Pane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="38.0" onMouseClicked="#idea"
+                       prefHeight="50.0" style="-fx-background-color: #3366ff;" styleClass="buttons" text="IDEA"
+                       textAlignment="CENTER" textFill="RED">
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="123.0" layoutY="38.0"
+                       onMouseClicked="#navicat" prefHeight="50.0" style="-fx-background-color: #3366ff;"
+                       styleClass="buttons" text="NAVICAT" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="38.0"
+                       onMouseClicked="#hbuilderx" prefHeight="50.0" style="-fx-background-color: #3366ff;"
+                       styleClass="buttons" text="HBUILDERX" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="353.0" layoutY="38.0"
+                       onMouseClicked="#chrome" prefHeight="50.0" style="-fx-background-color: #3366ff;"
+                       styleClass="buttons" text="CHROME" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="465.0" layoutY="38.0"
+                       onMouseClicked="#sublime" prefHeight="50.0" style="-fx-background-color: #3366ff;"
+                       styleClass="buttons" text="SUBLIME" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="575.0" layoutY="38.0"
+                       onMouseClicked="#javafx" prefHeight="50.0" style="-fx-background-color: #3366ff;"
+                       styleClass="buttons" text="JAVAFX" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="676.0" layoutY="38.0" onMouseClicked="#tim"
+                       prefHeight="50.0" style="-fx-background-color: #3366ff;" styleClass="buttons" text="TIM"
+                       textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                    <padding>
+                        <Insets left="15.0" right="15.0"/>
+                    </padding>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

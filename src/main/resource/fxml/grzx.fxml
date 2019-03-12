@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.GrzxController">
+    <children>
+        <VBox layoutX="375.0" layoutY="124.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="30.0"/>
+                <HBox prefHeight="30.0">
+                    <children>
+                        <Label prefHeight="30.0" text="密码" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="password" prefHeight="30.0" styleClass="notwh"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#updatePWD" prefHeight="30.0"
+                                styleClass="buttons" text="确定" textFill="WHITE"/>
+                        <Label fx:id="pwderror"/>
+                    </children>
+                </HBox>
+                <HBox prefHeight="30.0">
+                    <children>
+                        <Label prefHeight="30.0" text="姓名" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="10.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <TextField fx:id="userName" prefHeight="30.0" styleClass="notwh"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#updateName" prefHeight="30.0"
+                                styleClass="buttons" text="确定" textFill="WHITE"/>
+                        <Label fx:id="nameerror"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

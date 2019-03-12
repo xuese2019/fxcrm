@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.fxcrm.controller.SyController">
+    <children>
+        <VBox layoutX="200.0" layoutY="73.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="30.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#getZm" prefHeight="30.0" styleClass="buttons"
+                                text="桌面"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#getMac" prefHeight="30.0" styleClass="buttons"
+                                text="获取硬盘序列号"/>
+                        <Label fx:id="mac" prefHeight="30.0"/>
+                    </children>
+                </HBox>
+                <HBox fx:id="datas" VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

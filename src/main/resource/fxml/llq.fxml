@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<AnchorPane fx:id="anch" nodeOrientation="LEFT_TO_RIGHT" prefHeight="768.0" prefWidth="1024.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.fxcrm.controller.LlqController">
+    <children>
+        <VBox layoutX="377.0" layoutY="194.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox prefHeight="30.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#fh" prefHeight="30.0" styleClass="notwh"
+                                text="返回"/>
+                        <TextField fx:id="paths" prefHeight="30.0" prefWidth="903.0" styleClass="notwh"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#tz" prefHeight="30.0" styleClass="notwh"
+                                text="跳转"/>
+                        <Button mnemonicParsing="false" onMouseClicked="#resf" prefHeight="30.0" styleClass="notwh"
+                                text="刷新"/>
+                    </children>
+                </HBox>
+                <WebView fx:id="webs" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0"
+                         VBox.vgrow="ALWAYS"/>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

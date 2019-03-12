@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<GridPane alignment="center" hgap="10.0" styleClass="login" vgap="10.0" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.SampleController">
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <VBox maxHeight="300.0" maxWidth="500.0" minHeight="300.0" minWidth="500.0" nodeOrientation="LEFT_TO_RIGHT"
+              prefHeight="300.0" prefWidth="500.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647">
+            <children>
+                <HBox maxHeight="25.0" maxWidth="500.0" minHeight="25.0" minWidth="500.0"
+                      nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="500.0"
+                      style="-fx-background-color: #dfe0e1;" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="title" prefHeight="25.0" prefWidth="300.0" styleClass="login-title" text="CRM"
+                               textFill="WHITE">
+                            <padding>
+                                <Insets left="10.0"/>
+                            </padding>
+                        </Label>
+                        <Pane nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="200.0"
+                              styleClass="login-title" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT"
+                                       onMouseClicked="#closeLogin" prefHeight="25.0" prefWidth="31.0" text="X"
+                                       textAlignment="CENTER" textFill="WHITE">
+                                    <styleClass>
+                                        <String fx:value="login-close"/>
+                                        <String fx:value="cursor1"/>
+                                    </styleClass>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </HBox>
+                <VBox prefHeight="275.0" prefWidth="500.0">
+                    <children>
+                        <HBox prefHeight="92.0" prefWidth="500.0"/>
+                        <HBox prefHeight="25.0" prefWidth="500.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="80.0" text="账户"
+                                       textAlignment="CENTER" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets left="100.0"/>
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets right="10.0"/>
+                                    </padding>
+                                </Label>
+                                <TextField fx:id="account" prefHeight="25.0" prefWidth="210.0" text="123"/>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="25.0" prefWidth="500.0">
+                            <children>
+                                <Label alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="80.0" text="密码"
+                                       textAlignment="CENTER" textFill="WHITE">
+                                    <padding>
+                                        <Insets right="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets left="100.0"/>
+                                    </HBox.margin>
+                                </Label>
+                                <PasswordField fx:id="password" prefHeight="25.0" prefWidth="210.0" text="123"/>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="137.0" prefHeight="25.0" prefWidth="500.0">
+                            <VBox.margin>
+                                <Insets top="10.0"/>
+                            </VBox.margin>
+                            <children>
+                                <Label fx:id="errorText" prefHeight="25.0" prefWidth="206.0"/>
+                                <Button fx:id="loginButton" mnemonicParsing="false" onMouseClicked="#login"
+                                        prefHeight="25.0" prefWidth="235.0" text="登陆" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets right="110.0"/>
+                                    </HBox.margin>
+                                    <rotationAxis>
+                                        <Point3D/>
+                                    </rotationAxis>
+                                    <styleClass>
+                                        <String fx:value="login-button-login"/>
+                                        <String fx:value="cursor1"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</GridPane>
