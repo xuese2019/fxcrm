@@ -1,5 +1,6 @@
 package com.fxcrm;
 
+import com.fxcrm.controller.SampleController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/sample.fxml"));
+        Parent root = fxmlLoader.load();
+        SampleController sampleController = fxmlLoader.getController();
+        sampleController.init();
         ObservableList<Node> childrenUnmodifiable = root.getChildrenUnmodifiable();
         if (!childrenUnmodifiable.isEmpty()) {
             VBox node = (VBox) childrenUnmodifiable.get(0);

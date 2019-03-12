@@ -7,4 +7,5 @@ package com.fxcrm.utils;
  */
 public class AccountUtils {
     public static String ACC = null;
+    public static String TOKEN = null;
 }

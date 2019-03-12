@@ -1,10 +1,17 @@
 package com.fxcrm.controller;
 
-import com.fxcrm.db.dao.AccountDao;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.fxcrm.feign.FeignRequestUrl;
+import com.fxcrm.feign.FeignUtil;
+import com.fxcrm.feign.account.AccountInterface;
 import com.fxcrm.utils.AccountUtils;
+import com.fxcrm.utils.ResponseResult;
+import com.fxcrm.utils.exception.MyExceptionUtils;
+import com.fxcrm.utils.jackjsonutils.JackJsonUtils;
 import com.sun.javafx.robot.impl.FXRobotHelper;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +19,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class SampleController {
 
-    private AccountDao dao = new AccountDao();
+    private AccountInterface accountInterface = FeignUtil.feign()
+            .target(AccountInterface.class, new FeignRequestUrl().URL());
 
     @FXML
     private TextField account;
@@ -24,6 +34,11 @@ public class SampleController {
     private Label errorText;
     @FXML
     private Button loginButton;
+
+    public void init() {
+        account.setText("weihuzu");
+        password.setText("123456");
+    }
 
     /**
      * 关闭程序
@@ -39,37 +54,62 @@ public class SampleController {
     @FXML
     private void login() {
         errorText.setText("");
-        loginButton.setVisible(true);
-        Platform.runLater(new Runnable() {
+        loginButton.setDisable(true);
+        Task<Void> task = new Task<Void>() {
             @Override
-            public void run() {
+            protected Void call() throws Exception {
                 logind2();
+                return null;
             }
-        });
+        };
+        new Thread(task).start();
     }
 
     /**
      * 登陆验证
      */
-    private void logind2() {
+    private void logind2() throws Exception {
         String accountText = account.getText();
         String passwordText = password.getText();
-        loginButton.setDisable(true);
-//        if (accountText.equals("admin") && passwordText.equals("admin")) {
-//            loginButton.setDisable(true);
-////            跳转
-//            toHome();
-//        } else {
-        boolean b = dao.login("select * from account_table where account = '" + accountText + "' and password = '" + passwordText + "'");
+        JackJsonUtils<HashMap<String, String>> jackJsonUtils = new JackJsonUtils<>();
+        HashMap<String, String> map = new HashMap<>();
+        map.put("account", accountText);
+        map.put("password", passwordText);
+        String s = jackJsonUtils.beanToJackJsonString(map);
+        ResponseResult<Object> result = null;
+        try {
+            result = accountInterface.login(new JSONPObject(s, Class.class));
+        } catch (Exception e) {
+            String myExceptionUtils = new MyExceptionUtils().ex(e);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText(myExceptionUtils);
+                    alert.show();
+                    loginButton.setDisable(false);
+                }
+            });
+        }
+        if (result == null) {
+            return;
+        }
+        boolean b = result.isSuccess();
         if (b) {
+            AccountUtils.TOKEN = (String) result.getData();
             toHome();
         } else {
-            loginButton.setDisable(false);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("账号或密码错误");
-            alert.show();
+            String message = result.getMessage();
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText(message);
+                    alert.show();
+                    loginButton.setDisable(false);
+                }
+            });
         }
-//        }
     }
 
     /**
