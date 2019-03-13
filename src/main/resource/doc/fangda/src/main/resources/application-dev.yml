@@ -1,0 +1,90 @@
+#dev 开发环境
+
+#tocmat设置
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: UTF-8
+  #    允许的http请求
+  port-header: HEAD,PUT,DELETE,OPTIONS,TRACE,COPY,SEARCH,PROPFIND
+spring:
+  #限制上传文件大小，springboot默认限制为2M
+  servlet:
+    #    http已过期，将由servlet中的属性代替
+    #  http:
+    multipart:
+      #      enabled: true
+      #      单个文件大小
+      max-file-size: 10MB
+      #      单次请求文件大小，为了应对多个文件同时上传的情况
+      max-request-size: 10MB
+  # class文件编码
+  mandatory-file-encoding: UTF-8
+  thymeleaf:
+    prefix: classpath:/templates
+    encoding: UTF-8
+  #是否开启thymeleaf缓存
+  cache: false
+
+  #    datasource
+  #log4j jdbc
+  datasource:
+    url: jdbc:log4jdbc:mysql://192.168.1.222/fangda?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+  #    springboot jdbc
+  #    url: jdbc:mysql://192.168.1.222/fangda?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+  #    username: root
+  #    password: root
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  #     控制台彩色输出
+  output:
+    ansi:
+      enabled: ALWAYS
+  #      应对OPTIONS请求，权限判断会出现此请求
+  mvc:
+    dispatch-options-request: true
+    #    默认静态路径
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/,classpath:/error/,file:${upLoad.path}
+
+  #  jpa
+  jpa:
+    database-platform: com.yunang.fangda.sys.jpa.MySQL5InnoDBDialectUtf8mb4
+    hibernate:
+#      是否自动创建跟新表
+      ddl-auto: update
+#    解决 could not initialize proxy - no Session
+    open-in-view: true
+#默认分页条数
+page:
+  pageSize: 15
+
+#banner 启动动画文件
+# 启动动画文件编码
+banner:
+  charset: UTF-8
+# 启动动画文件地址
+#  location: classpath:banner.txt
+
+#配置日志
+logging:
+  #  默认日志格式 10M自动分割 最多存在7个文件
+  file: fangda.log
+  level:
+    com.yunang.fangda: debug
+#  采用xml 自定义日志格式，分割方式等
+#  config: classpath:loggback.xml
+
+#上传/导入文件地址
+upLoad:
+  path: D://zlUpload/
+#sql备份地址
+databaseSavePath: D://
+#模版地址
+file:
+  model:
+    path: D://
