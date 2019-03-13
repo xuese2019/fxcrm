@@ -144,50 +144,58 @@ public class YybfqController {
 
     @FXML
     private void play() {
-        musjd.setPrefWidth(0);
-        if (list.size() > 0) {
-            dqbfindex = dqbfindex >= 0 ? dqbfindex : 0;
-            dqbfgq = list.get(dqbfindex);
-            try {
-                URL url = new URL(new File("file://" + musicPath.getText() + "\\" + dqbfgq).getPath());
-                media1 = new Media(url.toString());
-                mp1 = new MediaPlayer(media1);
-                dqbf.setText(dqbfgq);
-                mp1.setOnEndOfMedia(new Runnable() {
-                    @Override
-                    public void run() {
+        if (mp1 != null) {
+            if (mp1.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+                mp1.pause();
+            } else {
+                mp1.play();
+            }
+        } else {
+            musjd.setPrefWidth(0);
+            if (list.size() > 0) {
+                dqbfindex = dqbfindex >= 0 ? dqbfindex : 0;
+                dqbfgq = list.get(dqbfindex);
+                try {
+                    URL url = new URL(new File("file://" + musicPath.getText() + "\\" + dqbfgq).getPath());
+                    media1 = new Media(url.toString());
+                    mp1 = new MediaPlayer(media1);
+                    dqbf.setText(dqbfgq);
+                    mp1.setOnEndOfMedia(new Runnable() {
+                        @Override
+                        public void run() {
 //                        循环
 //                        mp1.seek(Duration.ZERO);
 //                        自动下一首
-                        dow();
-                    }
-                });
-                vol.setText(mp1.getVolume() + "");
-                mp1.play();
-                mp1.setAudioSpectrumListener(new AudioSpectrumListener() {
-                    @Override
-                    public void spectrumDataUpdate(double timestamp, double duration, float[] magnitudes, float[] phases) {
-                        Task<Void> task = new Task<Void>() {
-                            @Override
-                            protected Void call() throws Exception {
-                                Duration totalDuration = mp1.getTotalDuration();
-                                double d = totalDuration.toSeconds();
+                            dow();
+                        }
+                    });
+                    vol.setText(mp1.getVolume() + "");
+                    mp1.play();
+                    mp1.setAudioSpectrumListener(new AudioSpectrumListener() {
+                        @Override
+                        public void spectrumDataUpdate(double timestamp, double duration, float[] magnitudes, float[] phases) {
+                            Task<Void> task = new Task<Void>() {
+                                @Override
+                                protected Void call() throws Exception {
+                                    Duration totalDuration = mp1.getTotalDuration();
+                                    double d = totalDuration.toSeconds();
 //                                DecimalFormat df = new DecimalFormat("#.00");
-                                double v = timestamp / d;
-                                DecimalFormat df = new DecimalFormat("#.00");
-                                DecimalFormat df2 = new DecimalFormat("#.00");
-                                double v1 = Double.parseDouble(df.format(v));
-                                double v2 = 1000 * v1;
+                                    double v = timestamp / d;
+                                    DecimalFormat df = new DecimalFormat("#.00");
+                                    DecimalFormat df2 = new DecimalFormat("#.00");
+                                    double v1 = Double.parseDouble(df.format(v));
+                                    double v2 = 1000 * v1;
 //                                频谱
-                                pinpu(phases, v2);
-                                return null;
-                            }
-                        };
-                        new Thread(task).start();
-                    }
-                });
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+                                    pinpu(phases, v2);
+                                    return null;
+                                }
+                            };
+                            new Thread(task).start();
+                        }
+                    });
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
