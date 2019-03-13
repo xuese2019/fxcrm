@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fxcrm.controller.WyyyyController">
+   <children>
+      <VBox layoutX="501.0" layoutY="260.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="30.0">
+               <children>
+                  <Label prefHeight="30.0" text="专辑主地址" />
+                  <TextField fx:id="zjdz" prefHeight="30.0" prefWidth="861.0" styleClass="notwh" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onMouseClicked="#tz" prefHeight="30.0" styleClass="buttons" text="跳转" />
+                  <Button mnemonicParsing="false" onMouseClicked="#ksjx" prefHeight="30.0" styleClass="buttons" text="开始解析" />
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <WebView fx:id="webs" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

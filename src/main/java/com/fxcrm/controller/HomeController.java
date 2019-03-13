@@ -113,6 +113,14 @@ public class HomeController {
         men("yybfq");
     }
 
+    /**
+     * 网易云音乐
+     */
+    @FXML
+    private void wyyyy() {
+        men("wyyyy");
+    }
+
     private void men(String str) {
         try {
 //            ObservableList<Stage> stages = FXRobotHelper.getStages();
@@ -149,6 +157,8 @@ public class HomeController {
                         bodys.getChildren().add(node);
                     }
                     break;
+                case "wyyyy":
+                    ((WyyyyController) controller1).init();
                 default:
             }
         } catch (Exception e) {
