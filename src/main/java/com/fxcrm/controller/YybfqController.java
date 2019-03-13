@@ -75,6 +75,7 @@ public class YybfqController {
     }
 
     private void getMusics() {
+        list.clear();
         String text = musicPath.getText();
         if (!text.trim().isEmpty()) {
             File file = new File(text.trim());
