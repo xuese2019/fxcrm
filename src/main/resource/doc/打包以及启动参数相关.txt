@@ -1,0 +1,5 @@
+maven打包命令：
+mvn install -Dmaven.test.skip=true
+jar启动需要的额外参数
+(java -Dfile.encoding=utf-8 -Xms1024m -Xmx1024m -jar xxxx.jar)
+-Dfile.encoding=utf-8 -Xms1024m -Xmx1024m
